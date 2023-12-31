@@ -1,0 +1,107 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin: 10px;
+}
+
+h1 {
+  background: linear-gradient(45deg, rgb(238, 181, 127), rgb(139, 236, 255));
+  text-align: center;
+  font-size: 50px;
+  color: transparent;
+  background-clip: text;
+}
+
+td button {
+  cursor: pointer;
+  border: 1px solid #a9a9a9;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #c0c0c0;
+}
+
+td button:hover {
+  background-color: #a9a9a9;
+}
+
+td button:active {
+  transform: scale(0.9);
+  background-color: #8c8c8c;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+table {
+  margin: 0 auto;
+  margin-top: 10px;
+  border-collapse: collapse;
+  user-select: none;
+  border: 5px solid darkgray;
+  background-color: lightgray;
+}
+
+td {
+  width: 30px;
+  height: 30px;
+}
+
+.level button {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+  background: #111;
+  border: 1px solid #4682b4;
+  border-radius: 5px;
+}
+
+.level button:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.time-display {
+  display: inline-block;
+}
+
+.flags-display {
+  display: inline-block;
+}
+
+.lives-display {
+  display: inline-block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
