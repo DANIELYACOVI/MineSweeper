@@ -9,9 +9,12 @@
 </head>
 
 <body onload="onInit()">
-
+    
+        
         <h1>Mine Sweeper</h1>
-
+        
+        <button class="dark-mode style" onclick="toggleDarkMode()">Dark Mode</button>
+        
         <div class="level">
             <button onclick="onLevelSelect(16)">Beginner 4*4</button>
             <button onclick="onLevelSelect(64)">Medium 8*8</button>
@@ -22,22 +25,20 @@
         <div class="lives-display"><span id="livesDisplay"></span></div>
         <button id="restartButton" class="restart" onclick="restartGame()">🙂</button>
         <div class="time-display">Time: <span id="timeDisplay">0</span></div>
-
+        
         <table>
             <tbody class="board"></tbody>
         </table>
 
         <div id="winModal" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeWinModal()">X</span>
-                <p>You won!</p>
+              <span class="close" onclick="closeWinModal()">&times;</span>
+              <p>Congratulations! You won! 🎉🎉🎉</p>
             </div>
-        </div>
-
-        <h2>Daniel Yacovi</h2>
-
-    </div>
-
+          </div>
+        
+        <h2>Daniel Yacovi <span class="separation">|</span> Coding Academy <span class="separation">|</span> 2024</h2>
+        
     <script src="js/util.js"></script>
     <script src="js/game.js"></script>
     <script src="js/mine.js"></script>

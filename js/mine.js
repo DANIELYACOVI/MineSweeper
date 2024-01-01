@@ -2,49 +2,49 @@
 
 function setMines(board) {
     //Test
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board[0].length; j++) {
-            board[i][j].isMine = false
-        }
+//     for (var i = 0; i < board.length; i++) {
+//         for (var j = 0; j < board[0].length; j++) {
+//             board[i][j].isMine = false;
+//         }
+//     }
+
+//     var minePositions = [
+//         { row: 0, col: 0 },
+//         { row: 1, col: 1 },
+//         { row: 2, col: 0 }
+//     ]
+
+//     for (var i = 0; i < minePositions.length; i++) {
+//         var minePosition = minePositions[i];
+//         board[minePosition.row][minePosition.col].isMine = true;
+//     }
+// }
+
+    // Random
+    var minesCount
+    switch (gLevel) {
+        case 16:
+            minesCount = 2;
+            break;
+        case 64:
+            minesCount = 14;
+            break;
+        case 144:
+            minesCount = 32;
+            break;
+        default: minesCount = 2;
+            break;
     }
-
-    var minePositions = [
-        { row: 0, col: 0 },
-        { row: 1, col: 1 },
-        { row: 2, col: 0 }
-    ]
-
-    for (var i = 0; i < minePositions.length; i++) {
-        var minePosition = minePositions[i]
-        board[minePosition.row][minePosition.col].isMine = true
+    for (var i = 0; i < minesCount; i++) {
+        var randRow = getRandomInt(0, board.length)
+        var randCol = getRandomInt(0, board[0].length)
+        while (board[randRow][randCol].isMine) {
+            randRow = getRandomInt(0, board.length)
+            randCol = getRandomInt(0, board[0].length)
+        }
+        board[randRow][randCol].isMine = true
     }
 }
-
-//Random
-// var minesCount
-// switch (gLevel) {
-//     case 16:
-//         minesCount = 2;
-//         break;
-//     case 64:
-//         minesCount = 14;
-//         break;
-//     case 144:
-//         minesCount = 32;
-//         break;
-//     default: minesCount = 2;
-//         break;
-// }
-// for (var i = 0; i < minesCount; i++) {
-//     var randRow = getRandomInt(0, board.length)
-//     var randCol = getRandomInt(0, board[0].length)
-//     while (board[randRow][randCol].isMine) {
-//         randRow = getRandomInt(0, board.length)
-//         randCol = getRandomInt(0, board[0].length)
-//     }
-//     board[randRow][randCol].isMine = true
-// }
-// }
 
 function revealAllMines() {
     for (var i = 0; i < gBoard.length; i++) {
@@ -90,7 +90,7 @@ function hideAllMines() {
     for (let i = 0; i < gBoard.length; i++) {
         for (let j = 0; j < gBoard[i].length; j++) {
             if (gBoard[i][j].isMine) {
-                gBoard[i][j].isShown = false
+                gBoard[i][j].isShown = false;
             }
         }
     }

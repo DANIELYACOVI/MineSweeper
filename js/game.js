@@ -23,6 +23,10 @@ function onInit() {
     updateFlagsDisplay()
     gLives = 3
     updateLivesDisplay()
+
+    //darkMode
+    const isDarkMode = loadDarkModePreference()
+    document.body.classList.toggle('dark-mode', isDarkMode)
 }
 
 function buildBoard() {
@@ -126,13 +130,14 @@ function openWinModal() {
     var winModal = document.getElementById('winModal')
     winModal.style.display = 'block'
     clearInterval(gTimer)
-}
-
-function closeWinModal() {
+  }
+  
+  function closeWinModal() {
     var winModal = document.getElementById('winModal')
     winModal.style.display = 'none'
     restartGame()
-}
+  }
+  
 
 function handleWin() {
     openWinModal()
@@ -141,18 +146,17 @@ function handleWin() {
 function expandCell(row, col, value) {
     console.log('Rendering cell:', row, col, 'with value:', value)
 
-    //use data attributes
     var elCell = document.querySelector(`[data-row="${row}"][data-col="${col}"] button`)
 
     if (gBoard[row][col].isMarked) {
         elCell.innerHTML = '🚩'
     } else if (gBoard[row][col].isShown) {
-        elCell.innerHTML = value !== 0 ? value : ""
+        elCell.innerHTML = value !== 0 ?value : ""
     } else {
         elCell.innerHTML = ''
     }
     elCell.style.backgroundColor = gBoard[row][col].isShown ? 'white' : ''
-    return
+    return 
 }
 
 function startTimer() {
@@ -193,4 +197,25 @@ function restartGame() {
     var restartButton = document.getElementById('restartButton')
     restartButton.innerHTML = originalEmoji
     onInit()
+}
+
+//DarkMode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode')
+    var darkModeButton = document.querySelector('.dark-mode.style')
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeButton.innerText = 'Light Mode'
+    } else {
+        darkModeButton.innerText = 'Dark Mode'
+    }
+
+    saveDarkModePreference(document.body.classList.contains('dark-mode'))
+}
+
+function saveDarkModePreference(isDarkMode) {
+    localStorage.setItem('darkMode', isDarkMode)
+}
+
+function loadDarkModePreference() {
+    return localStorage.getItem('darkMode') === 'true'
 }
