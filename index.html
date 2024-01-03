@@ -4,41 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mine Sweeper</title>
+    <title>MineSweeper</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="onInit()">
-    
-        
-        <h1>Mine Sweeper</h1>
-        
-        <button class="dark-mode style" onclick="toggleDarkMode()">Dark Mode</button>
-        
-        <div class="level">
-            <button onclick="onLevelSelect(16)">Beginner 4*4</button>
-            <button onclick="onLevelSelect(64)">Medium 8*8</button>
-            <button onclick="onLevelSelect(144)">Expert 12*12</button>
+
+
+    <h1>Mine Sweeper</h1>
+
+    <button class="dark-mode style" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <div class="level">
+        <button onclick="onLevelSelect(16)">Beginner 4*4</button>
+        <button onclick="onLevelSelect(64)">Medium 8*8</button>
+        <button onclick="onLevelSelect(144)">Expert 12*12</button>
+    </div>
+
+    <div class="flags-display">Flags: <span id="flagsDisplay">0</span></div>
+    <div class="lives-display"><span id="livesDisplay"></span></div>
+    <button id="restartButton" class="restart" onclick="restartGame()">🙂</button>
+    <div class="time-display">Time: <span id="timeDisplay">0</span></div>
+
+    <table>
+        <tbody class="board"></tbody>
+    </table>
+
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWinModal()">&times;</span>
+            <p>Congratulations! You won! 🎉🎉🎉</p>
         </div>
+    </div>
 
-        <div class="flags-display">Flags: <span id="flagsDisplay">0</span></div>
-        <div class="lives-display"><span id="livesDisplay"></span></div>
-        <button id="restartButton" class="restart" onclick="restartGame()">🙂</button>
-        <div class="time-display">Time: <span id="timeDisplay">0</span></div>
-        
-        <table>
-            <tbody class="board"></tbody>
-        </table>
+    <h2>Daniel Yacovi <span class="separation">|</span> Coding Academy <span class="separation">|</span> 2024</h2>
 
-        <div id="winModal" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeWinModal()">&times;</span>
-              <p>Congratulations! You won! 🎉🎉🎉</p>
-            </div>
-          </div>
-        
-        <h2>Daniel Yacovi <span class="separation">|</span> Coding Academy <span class="separation">|</span> 2024</h2>
-        
     <script src="js/util.js"></script>
     <script src="js/game.js"></script>
     <script src="js/mine.js"></script>

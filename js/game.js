@@ -2,7 +2,6 @@
 
 const EMPTY = ' '
 const MINES = '💣'
-// const FLAG = '🚩'
 
 var gBoard
 var gLevel = 16
@@ -78,6 +77,7 @@ function cellClicked(row, col, event) {
     if (gLives <= 0) {
         return
     }
+
     var cell = gBoard[row][col]
 
     if (!timerStart) {
@@ -99,7 +99,7 @@ function cellClicked(row, col, event) {
                     console.log('minesAroundCount:', minesAroundCount)
                     cell.innerHTML = minesAroundCount
                 } else {
-                    expandCell(row, col, EMPTY)
+                    openNeighbors(row, col)
                 }
             }
         }
@@ -111,6 +111,24 @@ function cellClicked(row, col, event) {
 
         if (checkWin()) {
             handleWin()
+        }
+    }
+}
+
+//Recursion
+function openNeighbors(row, col) {
+    for (var i = row - 1; i <= row + 1; i++) {
+        for (var j = col - 1; j <= col + 1; j++) {
+            if (i >= 0 && i < gBoard.length && j >= 0 && j < gBoard[0].length) {
+                var neighborCell = gBoard[i][j]
+                if (!neighborCell.isMine && !neighborCell.isMarked && !neighborCell.isShown) {
+                    neighborCell.isShown = true
+                    expandCell(i, j, countMinesAroundCell(i, j, gBoard))
+                    if (countMinesAroundCell(i, j, gBoard) === 0) {
+                        openNeighbors(i, j)
+                    }
+                }
+            }
         }
     }
 }
@@ -130,14 +148,14 @@ function openWinModal() {
     var winModal = document.getElementById('winModal')
     winModal.style.display = 'block'
     clearInterval(gTimer)
-  }
-  
-  function closeWinModal() {
+}
+
+function closeWinModal() {
     var winModal = document.getElementById('winModal')
     winModal.style.display = 'none'
     restartGame()
-  }
-  
+}
+
 
 function handleWin() {
     openWinModal()
@@ -151,12 +169,27 @@ function expandCell(row, col, value) {
     if (gBoard[row][col].isMarked) {
         elCell.innerHTML = '🚩'
     } else if (gBoard[row][col].isShown) {
-        elCell.innerHTML = value !== 0 ?value : ""
+    elCell.innerHTML = value !== 0 ? `<span style="color: ${getNumberColor(value)}">${value}</span>` : ''
     } else {
         elCell.innerHTML = ''
     }
     elCell.style.backgroundColor = gBoard[row][col].isShown ? 'white' : ''
-    return 
+    return
+}
+
+function getNumberColor(number) {
+    const colorMap = {
+        1: 'blue',
+        2: 'green',
+        3: 'red',
+        4: 'purple',
+        5: 'maroon',
+        6: 'teal',
+        7: 'black',
+        8: 'gray'
+    };
+
+    return colorMap[number] || 'black'
 }
 
 function startTimer() {

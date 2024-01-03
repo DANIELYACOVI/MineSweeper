@@ -2,23 +2,23 @@
 
 function setMines(board) {
     //Test
-//     for (var i = 0; i < board.length; i++) {
-//         for (var j = 0; j < board[0].length; j++) {
-//             board[i][j].isMine = false;
-//         }
-//     }
+    //     for (var i = 0; i < board.length; i++) {
+    //         for (var j = 0; j < board[0].length; j++) {
+    //             board[i][j].isMine = false;
+    //         }
+    //     }
 
-//     var minePositions = [
-//         { row: 0, col: 0 },
-//         { row: 1, col: 1 },
-//         { row: 2, col: 0 }
-//     ]
+    //     var minePositions = [
+    //         { row: 0, col: 0 },
+    //         { row: 1, col: 1 },
+    //         { row: 2, col: 0 }
+    //     ]
 
-//     for (var i = 0; i < minePositions.length; i++) {
-//         var minePosition = minePositions[i];
-//         board[minePosition.row][minePosition.col].isMine = true;
-//     }
-// }
+    //     for (var i = 0; i < minePositions.length; i++) {
+    //         var minePosition = minePositions[i];
+    //         board[minePosition.row][minePosition.col].isMine = true;
+    //     }
+    // }
 
     // Random
     var minesCount
@@ -48,7 +48,7 @@ function setMines(board) {
 
 function revealAllMines() {
     for (var i = 0; i < gBoard.length; i++) {
-        for (var j = 0; j < gBoard[0].length; j++) {
+        for (var j = 0; j < gBoard[i].length; j++) {
             if (gBoard[i][j].isMine) {
                 gBoard[i][j].isShown = true
             }
@@ -71,6 +71,7 @@ function countMinesAroundCell(cellI, cellJ, board) {
 
 function mineClick() {
     if (gLives > 0) {
+        console.log('Revealing all mines. Initial board state:', gBoard)
         revealAllMines()
         renderBoard(gBoard)
         gLives--
@@ -84,13 +85,14 @@ function mineClick() {
             updateLivesDisplay()
         }
     }
+    console.log('Board state after revealing mines:', gBoard)
 }
 
 function hideAllMines() {
-    for (let i = 0; i < gBoard.length; i++) {
-        for (let j = 0; j < gBoard[i].length; j++) {
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[i].length; j++) {
             if (gBoard[i][j].isMine) {
-                gBoard[i][j].isShown = false;
+                gBoard[i][j].isShown = false
             }
         }
     }
