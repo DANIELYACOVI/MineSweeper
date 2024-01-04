@@ -72,16 +72,16 @@ function countMinesAroundCell(cellI, cellJ, board) {
 function mineClick() {
     if (gLives > 0) {
         console.log('Revealing all mines. Initial board state:', gBoard)
-        revealAllMines()
-        renderBoard(gBoard)
+        // renderBoard(gBoard)
         gLives--
-
+        
         if (gLives === 0) {
+            revealAllMines()
+            renderBoard(gBoard)
             gameOver()
             resetTimer()
         } else {
             hideAllMines()
-            renderBoard(gBoard)
             updateLivesDisplay()
         }
     }
