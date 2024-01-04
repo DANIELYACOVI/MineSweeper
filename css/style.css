@@ -12,25 +12,19 @@ div {
 h1 {
   background: linear-gradient(45deg, rgb(238, 181, 127), rgb(139, 236, 255));
   text-align: center;
-  font-size: 50px;
+  font-size: 55px;
   color: transparent;
   background-clip: text;
 }
 
 h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.separation {
-  margin: 0 10px;
-}
-@media (max-width: 600px) {
-  h2 {
-      font-size: 16px;
-      padding: 10px;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 30px;
+  font-family: Monospace;
 }
 
 td button {
@@ -61,6 +55,12 @@ td {
   height: 30px;
 }
 
+.level {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .level button {
   width: 80px;
   height: 50px;
@@ -71,9 +71,13 @@ td {
   color: rgb(255, 255, 255);
   background: whitesmoke;
   color: black;
-  border: 1px solid #4682b4;
-  border-radius: 5px;
-  margin-top: 20px;
+  border: 5px solid lightblue;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Monospace;
+  font-size: 12px;
 }
 
 .level button:hover {
@@ -83,10 +87,14 @@ td {
 
 .time-display {
   display: inline-block;
+  font-family: Monospace;
+  font-size: 12px;
 }
 
 .flags-display {
   display: inline-block;
+  font-family: Monospace;
+  font-size: 12px;
 }
 
 .lives-display {
@@ -142,8 +150,9 @@ h1.dark-mode {
   padding: 0;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
+
 }
 
 .style {
@@ -163,16 +172,7 @@ h1.dark-mode {
 
 .style:before {
   content: "";
-  background: linear-gradient(45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000);
+  background: lightblue;
   position: absolute;
   top: -2px;
   left: -2px;
