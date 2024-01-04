@@ -189,7 +189,7 @@ function getNumberColor(number) {
         8: 'gray'
     };
 
-    return colorMap[number] || 'black';
+    return colorMap[number] || 'black'
 }
 
 function startTimer() {

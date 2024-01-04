@@ -4,7 +4,7 @@ function setMines(board) {
     //Test
     //     for (var i = 0; i < board.length; i++) {
     //         for (var j = 0; j < board[0].length; j++) {
-    //             board[i][j].isMine = false;
+    //             board[i][j].isMine = false
     //         }
     //     }
 
@@ -15,8 +15,8 @@ function setMines(board) {
     //     ]
 
     //     for (var i = 0; i < minePositions.length; i++) {
-    //         var minePosition = minePositions[i];
-    //         board[minePosition.row][minePosition.col].isMine = true;
+    //         var minePosition = minePositions[i]
+    //         board[minePosition.row][minePosition.col].isMine = true
     //     }
     // }
 
@@ -71,7 +71,7 @@ function countMinesAroundCell(cellI, cellJ, board) {
 
 function mineClick() {
     if (gLives > 0) {
-        console.log('Revealing all mines. Initial board state:', gBoard)
+        // console.log('Revealing all mines. Initial board state:', gBoard)
         // renderBoard(gBoard)
         gLives--
         
@@ -85,7 +85,7 @@ function mineClick() {
             updateLivesDisplay()
         }
     }
-    console.log('Board state after revealing mines:', gBoard)
+    // console.log('Board state after revealing mines:', gBoard)
 }
 
 function hideAllMines() {
