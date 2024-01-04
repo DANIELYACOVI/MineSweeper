@@ -18,13 +18,19 @@ h1 {
 }
 
 h2 {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 30px;
-  font-family: Monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.separation {
+  margin: 0 10px;
+}
+@media (max-width: 600px) {
+  h2 {
+      font-size: 16px;
+      padding: 10px;
+  }
 }
 
 td button {
