@@ -24,7 +24,7 @@ h2 {
   right: 0;
   text-align: center;
   padding: 30px;
-  font-family: cursive;
+  font-family: Monospace;
 }
 
 td button {
@@ -99,6 +99,7 @@ td {
 
 .modal-content {
   background-color: #fefefe;
+  color: black;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;

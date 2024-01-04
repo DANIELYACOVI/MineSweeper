@@ -169,12 +169,27 @@ function expandCell(row, col, value) {
     if (gBoard[row][col].isMarked) {
         elCell.innerHTML = '🚩'
     } else if (gBoard[row][col].isShown) {
-        elCell.innerHTML = value !== 0 ? value : ""
+        elCell.innerHTML = value !== 0 ? `<span style="color: ${getNumberColor(value)}">${value}</span>` : ''
     } else {
         elCell.innerHTML = ''
     }
     elCell.style.backgroundColor = gBoard[row][col].isShown ? 'white' : ''
     return
+}
+
+function getNumberColor(number) {
+    const colorMap = {
+        1: 'blue',
+        2: 'green',
+        3: 'red',
+        4: 'purple',
+        5: 'maroon',
+        6: 'teal',
+        7: 'black',
+        8: 'gray'
+    };
+
+    return colorMap[number] || 'black';
 }
 
 function startTimer() {
