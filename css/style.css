@@ -24,7 +24,7 @@ h2 {
   right: 0;
   text-align: center;
   padding: 30px;
-  font-family: Monospace;
+  font-family: Roboto,Helvetica Neue,sans-serif;
 }
 
 td button {
@@ -76,7 +76,7 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Monospace;
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 12px;
 }
 
@@ -87,13 +87,13 @@ td {
 
 .time-display {
   display: inline-block;
-  font-family: Monospace;
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 12px;
 }
 
 .flags-display {
   display: inline-block;
-  font-family: Monospace;
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 12px;
 }
 
