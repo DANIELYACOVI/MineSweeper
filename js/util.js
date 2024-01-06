@@ -13,3 +13,16 @@ function updateTimer() {
         time += timeStep
     }
 }
+
+function saveBestTime(level, time) {
+    const bestTimeKey = `timeScore-${level}`
+    const existingBestTime = localStorage.getItem(bestTimeKey)
+    if (!existingBestTime || time < existingBestTime) {
+        localStorage.setItem(bestTimeKey, time)
+    }
+}
+
+function loadBestTime(level) {
+    const bestTimeKey = `timeScore-${level}`
+    return localStorage.getItem(bestTimeKey) || 0
+}

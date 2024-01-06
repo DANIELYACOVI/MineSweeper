@@ -23,6 +23,9 @@ function onInit() {
     gLives = 3
     updateLivesDisplay()
 
+    const bestTimeDisplay = document.getElementById('bestTimeDisplay')
+    bestTimeDisplay.innerText = loadBestTime(gLevel)
+
     //darkMode
     const isDarkMode = loadDarkModePreference()
     document.body.classList.toggle('dark-mode', isDarkMode)
@@ -156,9 +159,12 @@ function closeWinModal() {
     restartGame()
 }
 
-
 function handleWin() {
+    saveBestTime(gLevel, time / 1000)
     openWinModal()
+
+    var winSound = document.getElementById('winSound')
+    winSound.play()
 }
 
 function expandCell(row, col, value) {
@@ -187,7 +193,7 @@ function getNumberColor(number) {
         6: 'teal',
         7: 'black',
         8: 'gray'
-    };
+    }
 
     return colorMap[number] || 'black'
 }
@@ -223,6 +229,9 @@ function gameOver() {
 
     var restartButton = document.getElementById('restartButton')
     restartButton.innerHTML = '🙁'
+
+    var gameOverSound = document.getElementById('gameOverSound')
+    gameOverSound.play()
 }
 
 function restartGame() {

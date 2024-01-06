@@ -24,17 +24,18 @@ function setMines(board) {
     var minesCount
     switch (gLevel) {
         case 16:
-            minesCount = 2;
-            break;
+            minesCount = 2
+            break
         case 64:
-            minesCount = 14;
-            break;
+            minesCount = 14
+            break
         case 144:
-            minesCount = 32;
-            break;
-        default: minesCount = 2;
-            break;
+            minesCount = 32
+            break
+        default: minesCount = 2
+            break
     }
+
     for (var i = 0; i < minesCount; i++) {
         var randRow = getRandomInt(0, board.length)
         var randCol = getRandomInt(0, board[0].length)
@@ -74,26 +75,15 @@ function mineClick() {
         // console.log('Revealing all mines. Initial board state:', gBoard)
         // renderBoard(gBoard)
         gLives--
-        
+
         if (gLives === 0) {
             revealAllMines()
             renderBoard(gBoard)
             gameOver()
             resetTimer()
         } else {
-            hideAllMines()
             updateLivesDisplay()
         }
     }
     // console.log('Board state after revealing mines:', gBoard)
-}
-
-function hideAllMines() {
-    for (var i = 0; i < gBoard.length; i++) {
-        for (var j = 0; j < gBoard[i].length; j++) {
-            if (gBoard[i][j].isMine) {
-                gBoard[i][j].isShown = false
-            }
-        }
-    }
 }

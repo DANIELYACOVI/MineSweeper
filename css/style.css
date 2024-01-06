@@ -21,7 +21,7 @@ h2 {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  /* right: 0; */
   text-align: center;
   padding: 30px;
   font-family: Roboto,Helvetica Neue,sans-serif;
@@ -198,4 +198,15 @@ h1.dark-mode {
 
 .separation {
   color: lightblue;
+}
+
+.best-time{
+  padding: 8px;
+  background: whitesmoke;
+  border-radius: 5px;
+  display: inline-block;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  color: black;
+  border: 2px solid lightblue;
 }

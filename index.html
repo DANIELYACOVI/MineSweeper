@@ -26,6 +26,10 @@
     <button id="restartButton" class="restart" onclick="restartGame()">🙂</button>
     <div class="time-display">Time: <span id="timeDisplay">0</span></div>
 
+    <div class="best-time-container">
+        <div class="best-time">Best Time: <span id="bestTimeDisplay">0</span></div>
+    </div>
+    
     <table>
         <tbody class="board"></tbody>
     </table>
@@ -36,8 +40,11 @@
             <p>Congratulations! You won! 🎉🎉🎉</p>
         </div>
     </div>
-
+    
     <h2>Daniel Yacovi <span class="separation">|</span> Coding Academy <span class="separation">|</span> 2024</h2>
+
+    <audio id="winSound" src="sound/success-fanfare-trumpets-6185.mp3" preload="auto"></audio>
+    <audio id="gameOverSound" src="sound/negative_beeps-6008.mp3" preload="auto"></audio>
 
     <script src="js/util.js"></script>
     <script src="js/game.js"></script>

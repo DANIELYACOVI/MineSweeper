@@ -3,13 +3,13 @@
 function calculateFlagsCount() {
     switch (gLevel) {
         case 16:
-            return 2;
+            return 2
         case 64:
-            return 14;
+            return 14
         case 144:
-            return 32;
+            return 32
         default:
-            return 2;
+            return 2
     }
 }
 
@@ -27,7 +27,7 @@ function toggleFlag(cell, row, col) {
         gBoard[row][col].isMarked = cell.isMarked
         gFlagsCount += cell.isMarked ? -1 : 1
         updateFlagsDisplay()
-        console.log('Toggling flag at row:', row, 'col:', col)
+        // console.log('Toggling flag at row:', row, 'col:', col)
         expandCell(row, col, cell.isMarked ? '🚩' : EMPTY)
     }
 }
