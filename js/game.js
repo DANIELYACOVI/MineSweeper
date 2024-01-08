@@ -93,7 +93,7 @@ function cellClicked(row, col, event) {
         if (cell.isMine) {
             mineClick()
         } else {
-            if (!cell.isShown && !cell.isMarked) {
+            if (!cell.isShown) {
                 cell.isShown = true
 
                 var minesAroundCount = countMinesAroundCell(row, col, gBoard)
@@ -103,6 +103,8 @@ function cellClicked(row, col, event) {
                     cell.innerHTML = minesAroundCount
                 } else {
                     openNeighbors(row, col)
+                    cell.isShown = true
+                    expandCell(row, col, minesAroundCount)
                 }
             }
         }
@@ -124,7 +126,7 @@ function openNeighbors(row, col) {
         for (var j = col - 1; j <= col + 1; j++) {
             if (i >= 0 && i < gBoard.length && j >= 0 && j < gBoard[0].length) {
                 var neighborCell = gBoard[i][j]
-                if (!neighborCell.isMine && !neighborCell.isMarked && !neighborCell.isShown) {
+                if (!neighborCell.isMine && !neighborCell.isShown) {
                     neighborCell.isShown = true
                     expandCell(i, j, countMinesAroundCell(i, j, gBoard))
                     if (countMinesAroundCell(i, j, gBoard) === 0) {
@@ -180,7 +182,6 @@ function expandCell(row, col, value) {
         elCell.innerHTML = ''
     }
     elCell.style.backgroundColor = gBoard[row][col].isShown ? 'white' : ''
-    return
 }
 
 function getNumberColor(number) {
