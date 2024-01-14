@@ -12,6 +12,7 @@ var time = 0
 var timeStep = 10
 var gFlagsCount
 var gLives
+var records = []
 
 function onInit() {
     resetTimer()
@@ -149,25 +150,82 @@ function checkWin() {
     return true
 }
 
-function openWinModal() {
-    var winModal = document.getElementById('winModal')
-    winModal.style.display = 'block'
-    clearInterval(gTimer)
-}
+// function openWinModal() {
+//     var winModal = document.getElementById('winModal')
+//     winModal.style.display = 'block'
+//     clearInterval(gTimer)
+// }
 
-function closeWinModal() {
-    var winModal = document.getElementById('winModal')
-    winModal.style.display = 'none'
-    restartGame()
-}
+// function closeWinModal() {
+//     var winModal = document.getElementById('winModal')
+//     winModal.style.display = 'none'
+//     restartGame()
+// }
 
 function handleWin() {
-    saveBestTime(gLevel, time / 1000)
-    openWinModal()
+    var playerName = prompt('Congratulations! You won! Enter your name:')
+    
+    var record = {
+        name: playerName,
+        time: (time / 1000).toFixed(0)
+    }
+    
+    records.push(record)
+    localStorage.setItem('records', JSON.stringify(records))
+    
+    displayRecords()
 
-    var winSound = document.getElementById('winSound')
-    winSound.play()
+    clearInterval(gTimer)
+    resetGame()
 }
+
+function resetGame() {
+    gBoard = buildBoard()
+    setMines(gBoard)
+    renderBoard(gBoard)
+
+    gFlagsCount = calculateFlagsCount()
+    updateFlagsDisplay()
+    gLives = 3
+    updateLivesDisplay()
+
+    resetTimer()
+
+    var restartButton = document.getElementById('restartButton')
+    restartButton.innerHTML = originalEmoji
+
+    onInit()
+}
+
+
+function loadRecords() {
+    var storedRecords = localStorage.getItem('records')
+    return storedRecords ? JSON.parse(storedRecords) : []
+}
+
+function loadRecords() {
+    var storedRecords = localStorage.getItem('records')
+    return storedRecords ? JSON.parse(storedRecords) : []
+}
+
+function displayRecords() {
+    var recordsBody = document.getElementById('recordsBody')
+    recordsBody.innerHTML = ''
+
+    records = loadRecords()
+
+    records.sort(function(a, b) {
+        return a.time - b.time
+    })
+
+    for (var i = 0; i < records.length; i++) {
+        var record = records[i]
+        var row = '<tr><td>' + record.name + '</td><td>' + record.time + 's</td></tr>'
+        recordsBody.innerHTML += row
+    }
+}
+
+displayRecords()
 
 function expandCell(row, col, value) {
     console.log('Rendering cell:', row, col, 'with value:', value)

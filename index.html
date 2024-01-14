@@ -24,22 +24,21 @@
     <div class="lives-display"><span id="livesDisplay"></span></div>
     <button id="restartButton" class="restart" onclick="restartGame()">🙂</button>
     <div class="time-display">Time: <span id="timeDisplay">0</span></div>
-
-    <div class="best-time-container">
-        <div class="best-time">Best Time: <span id="bestTimeDisplay">0</span></div>
-    </div>
     
     <table>
         <tbody class="board"></tbody>
     </table>
 
-    <div id="winModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeWinModal()">&times;</span>
-            <p>Congratulations! You won! 🎉🎉🎉</p>
-        </div>
-    </div>
-    
+    <table id="recordsTable" class="left-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="recordsBody"></tbody>
+      </table>
+
     <h2>Daniel Yacovi <span class="separation">|</span> Coding Academy <span class="separation">|</span> 2024</h2>
 
     <audio id="winSound" src="sound/success-fanfare-trumpets-6185.mp3" preload="auto"></audio>

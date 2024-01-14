@@ -21,7 +21,6 @@ h2 {
   position: fixed;
   bottom: 0;
   left: 0;
-  /* right: 0; */
   text-align: center;
   padding: 30px;
   font-family: Roboto,Helvetica Neue,sans-serif;
@@ -49,6 +48,38 @@ table {
   user-select: none;
   background-color: lightgray;
 }
+#recordsTable {
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-left: 20px;
+}
+
+#recordsTable th {
+  background-color: #3498db;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+#recordsTable td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#recordsTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#recordsTable tr:hover {
+  background-color: #f1f1f1;
+}
+
 
 td {
   width: 30px;
